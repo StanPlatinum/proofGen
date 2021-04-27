@@ -928,7 +928,8 @@ namespace {
                             //movq $0x4FFFFFFFFFFFFFFF, %rbx
                             BuildMI(*MBBI, *MII, DL, TII->get(X86::MOV64ri)).addReg(X86::RBX).addImm(0x4FFFFFFFFFFFFFFF);
                             //cmpq %rax, %rbx
-                            BuildMI(*MBBI, *MII, DL, TII->get(X86::CMP64rr)).addReg(X86::RBX).addReg(X86::RAX);
+                            // 2021.4.26: Modified because of instrumentation error
+                            BuildMI(*MBBI, *MII, DL, TII->get(X86::CMP64rr)).addReg(X86::RAX).addReg(X86::RBX);
                             //jb trap
                             BuildMI(*MBBI, *MII, DL, TII->get(X86::JCC_1)).addMBB(Trap).addImm(2);
 

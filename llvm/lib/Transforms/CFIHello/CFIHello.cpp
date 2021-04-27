@@ -39,8 +39,8 @@ namespace {
     map<string, Function*> wrapperMap;
     int k = 20; //hypperrace最大代码段
     bool needCFIInsert = false;  //用于设置是否需要进行CFICheck插桩
-    bool needShadowStackInsert = true; //用于设置是否需要进行ShadowStack插桩
-    bool needRspInsert = true; //用于设置是否需要进行rsp检查插桩
+    bool needShadowStackInsert = false; //用于设置是否需要进行ShadowStack插桩
+    bool needRspInsert = false; //用于设置是否需要进行rsp检查插桩
     bool needMovInsert = true; //用于设置是否需要进行store或load检查插桩
     bool needHyperraceInsert = false; //用于设置是否需要进行hyperrace插桩
     bool needTsxInsert = false; //用于设置是否需要进行tsx插桩，一般为false
